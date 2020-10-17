@@ -70,3 +70,15 @@ def directory_size(directory):
 			return os.path.getsize(directory)
 	else:
 		return "FileNotFoundError:- directory not found!"
+
+all_folders = sorted(all_folders,key=len,reverse=True)
+all_files = sorted(all_files,key=len,reverse=True)
+
+
+for index,all_file in enumerate(all_files):
+	if directory_size(all_file)<=0:os.remove(all_file)
+
+for index,all_folder in enumerate(all_folders):
+	if directory_size(all_folder)<1:
+		os.rmdir(all_folder)
+		print("ds")
